@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SQL Quest - Learn SQL by Practice</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">⚡ SQL<span>Quest</span></div>
+
+    <div class="stats">
+        <div class="stat">⭐ XP: <span id="xp">0</span></div>
+        <div class="stat">🏆 Completed: <span id="completedCount">0</span></div>
+    </div>
+</header>
+
+<div class="container">
+
+    <section class="hero">
+        <h1>🎮 Learn SQL by Playing</h1>
+        <p>
+            Complete SQL missions, fix your mistakes and unlock new challenges.
+            Don't worry about errors — SQLQuest will explain them and show you how to fix them!
+        </p>
+
+        <div class="progress-section">
+            <div class="progress-info">
+                <span>Your Progress</span>
+                <span id="progressText">0 / 6</span>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="game-grid">
+
+        <!-- CHALLENGES -->
+        <aside class="challenges">
+            <h2>🗺️ SQL Missions</h2>
+
+            <div class="challenge active" id="challenge-0"
+                 onclick="selectChallenge(0)">
+                <div class="challenge-title">1. Hello Database</div>
+                <div class="challenge-meta">SELECT • 100 XP</div>
+            </div>
+
+            <div class="challenge locked" id="challenge-1"
+                 onclick="selectChallenge(1)">
+                <div class="challenge-title">2. Find Students</div>
+                <div class="challenge-meta">WHERE • 150 XP</div>
+            </div>
+
+            <div class="challenge locked" id="challenge-2"
+                 onclick="selectChallenge(2)">
+                <div class="challenge-title">3. Sort It Out</div>
+                <div class="challenge-meta">ORDER BY • 150 XP</div>
+            </div>
+
+            <div class="challenge locked" id="challenge-3"
+                 onclick="selectChallenge(3)">
+                <div class="challenge-title">4. Count Them!</div>
+                <div class="challenge-meta">COUNT • 200 XP</div>
+            </div>
+
+            <div class="challenge locked" id="challenge-4"
+                 onclick="selectChallenge(4)">
+                <div class="challenge-title">5. Group Power</div>
+                <div class="challenge-meta">GROUP BY • 250 XP</div>
+            </div>
+
+            <div class="challenge locked" id="challenge-5"
+                 onclick="selectChallenge(5)">
+                <div class="challenge-title">6. SQL Master</div>
+                <div class="challenge-meta">JOIN • 300 XP</div>
+            </div>
+        </aside>
+
+        <!-- WORKSPACE -->
+        <main class="workspace">
+
+            <div class="challenge-header">
+                <h2 id="challengeTitle">1. Hello Database</h2>
+                <div class="difficulty" id="difficulty">BEGINNER</div>
+            </div>
+
+            <div class="mission" id="mission">
+                Write a SQL query that displays all columns from the
+                <strong>students</strong> table.
+            </div>
+
+            <div class="table-preview">
+                <h3>🗃️ Available Table: students</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>name</th>
+                            <th>age</th>
+                            <th>course</th>
+                            <th>marks</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Aisha</td>
+                            <td>20</td>
+                            <td>BCS</td>
+                            <td>85</td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+                            <td>Rahul</td>
+                            <td>21</td>
+                            <td>BCA</td>
+                            <td>72</td>
+                        </tr>
+
+                        <tr>
+                            <td>3</td>
+                            <td>Sana</td>
+                            <td>20</td>
+                            <td>BCS</td>
+                            <td>91</td>
+                        </tr>
+
+                        <tr>
+                            <td>4</td>
+                            <td>Arman</td>
+                            <td>22</td>
+                            <td>BBA</td>
+                            <td>68</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="editor">
+                <div class="editor-top">
+                    💻 SQL Editor — Write your query below
+                </div>
+
+                <textarea id="sqlInput"
+                    placeholder="Example:
+SELECT * FROM students;"></textarea>
+            </div>
+
+            <div class="actions">
+                <button class="run-btn" onclick="runQuery()">
+                    ▶ Run Query
+                </button>
+
+                <button class="hint-btn" onclick="showHint()">
+                    💡 Hint
+                </button>
+
+                <button class="next-btn" id="nextBtn"
+                        onclick="nextChallenge()">
+                    Next Challenge →
+                </button>
+            </div>
+
+            <div class="hint" id="hint"></div>
+            <div class="output" id="output"></div>
+
+        </main>
+    </div>
+
+    <section class="completion" id="completion">
+        <div class="emoji">🏆</div>
+
+        <h2>SQL Master!</h2>
+
+        <p>
+            Congratulations! You completed all SQLQuest challenges.
+        </p>
+
+        <br>
+
+        <h3>Total XP: <span id="finalXP">0</span> ⭐</h3>
+
+        <br>
+
+        <button class="run-btn" onclick="restartGame()">
+            🔄 Play Again
+        </button>
+    </section>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
